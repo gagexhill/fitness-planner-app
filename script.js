@@ -1,6 +1,6 @@
-document.getElementById('search-button').addEventListener('click', function() {
-    performSearch();
-});
+let globalRecipes = [];
+
+document.getElementById('search-button').addEventListener('click', performSearch);
 
 document.getElementById('recipe-search-input').addEventListener('keyup', function(event) {
     if (event.key === 'Enter') {
@@ -14,14 +14,23 @@ function performSearch() {
 }
 
 function fetchRecipes(query) {
-    const apiURL = `https://api.spoonacular.com/recipes/complexSearch?query=${encodeURIComponent(query)}&apiKey=a2c8b4ccf2514ddca86c1e9b2dc19413`;
+    const apiURL = getApiUrl(query);
 
     fetch(apiURL)
         .then(response => response.json())
         .then(data => {
-            displayRecipes(data.results);
+            globalRecipes = data.results;
+            displayRecipes(globalRecipes);
         })
-        .catch(error => console.error('Error fetching recipes:', error));
+        .catch(error => {
+            console.error('Error fetching recipes:', error);
+            alert('Failed to fetch recipes. Please try again.');
+        });
+}
+
+function getApiUrl(query) {
+    const apiKey = 'a2c8b4ccf2514ddca86c1e9b2dc19413';
+    return `https://api.spoonacular.com/recipes/complexSearch?query=${encodeURIComponent(query)}&apiKey=${apiKey}`;
 }
 
 function displayRecipes(recipes) {
@@ -50,23 +59,31 @@ function displayRecipes(recipes) {
 
 function updateRecipeCount(currentIndex, total) {
     const countDisplay = document.getElementById('recipe-count');
-    countDisplay.textContent = `Viewing recipe ${currentIndex} of ${total}`;
+    countDisplay.textContent = `${currentIndex} of ${total}`;
 }
 
 $('#recipe-carousel').on('slid.bs.carousel', function (event) {
     const currentIndex = event.relatedTarget.getAttribute('data-recipe-index');
-    updateRecipeCount(currentIndex, recipes.length);
+    updateRecipeCount(currentIndex, globalRecipes.length);
 });
 
 function showRecipeDetails(recipeId) {
-    const apiURL = `https://api.spoonacular.com/recipes/${recipeId}/information?apiKey=a2c8b4ccf2514ddca86c1e9b2dc19413`;
+    const apiURL = getApiUrlForRecipeDetails(recipeId);
 
     fetch(apiURL)
         .then(response => response.json())
         .then(data => {
             populateModal(data);
         })
-        .catch(error => console.error('Error fetching recipe details:', error));
+        .catch(error => {
+            console.error('Error fetching recipe details:', error);
+            alert('Failed to fetch recipe details. Please try again.');
+        });
+}
+
+function getApiUrlForRecipeDetails(recipeId) {
+    const apiKey = 'a2c8b4ccf2514ddca86c1e9b2dc19413';
+    return `https://api.spoonacular.com/recipes/${recipeId}/information?apiKey=${apiKey}`;
 }
 
 function populateModal(recipe) {
@@ -87,3 +104,40 @@ function populateModal(recipe) {
         <p>${recipe.instructions ? recipe.instructions : 'No instructions provided.'}</p>
     `;
 }
+
+$(document).ready(function() {
+    const wellnessEntries = [
+        { title: 'Be like Mike', image: 'https://miro.medium.com/v2/resize:fit:1200/1*yfsUzfsIv3JDcvXaFpexeA@2x.jpeg', text: 'The be like mike workout actually helped me be more ke //mike!    Awesome material' },
+        { title: 'Got milk', image: 'https://static.tvtropes.org/pmwiki/pub/images/got_milk_3.png', text: 'The got milk program has helped me alot. I prefer soymilk.' },
+    ];
+    
+    const wellnessCarousel = document.getElementById('wellness-entries');
+    wellnessEntries.forEach((entry, index) => {
+        const isActive = index === 0 ? 'active' : '';
+        const entryHTML = `
+            <div class="carousel-item ${isActive}" data-wellness-index="${index + 1}">
+                <div class="card" data-toggle="modal" data-target="#wellnessModal">
+                    <img src="${entry.image}" class="card-img-top" alt="${entry.title}">
+                    <div class="card-body">
+                        <h5 class="card-title">${entry.title}</h5>
+                        <p class="card-text">${entry.text}</p>
+                    </div>
+                </div>
+            </div>
+        `;
+        wellnessCarousel.innerHTML += entryHTML;
+    });
+    
+    $(document).on('click', '#wellness-carousel .card', function() {
+        const title = $(this).find('.card-title').text();
+        const imageSrc = $(this).find('.card-img-top').attr('src');
+        const text = $(this).find('.card-text').text();
+
+        $('#wellnessModalLabel').text(title);
+        $('#wellnessModal .modal-body img').attr('src', imageSrc);
+        $('#wellnessModal .modal-body h5').text(title);
+        $('#wellnessModal .modal-body p').text(text);
+
+        $('#wellnessModal').modal('show');
+    });
+});
