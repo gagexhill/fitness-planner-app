@@ -87,3 +87,40 @@ function populateModal(recipe) {
         <p>${recipe.instructions ? recipe.instructions : 'No instructions provided.'}</p>
     `;
 }
+
+const wellnessEntries = [
+    { title: 'Be like Mike', image: 'https://miro.medium.com/v2/resize:fit:1200/1*yfsUzfsIv3JDcvXaFpexeA@2x.jpeg', text: 'The be like mike workout actually helped me be more like mike! Awesome material' },
+    { title: 'Got milk', image: 'https://static.tvtropes.org/pmwiki/pub/images/got_milk_3.png', text: 'The got milk program has helped me alot. I prefer soymilk' },
+    // Add more entries here as needed
+];
+
+const wellnessCarousel = document.getElementById('wellness-entries');
+wellnessEntries.forEach((entry, index) => {
+    const isActive = index === 0 ? 'active' : '';
+    const entryHTML = `
+        <div class="carousel-item ${isActive}" data-wellness-index="${index + 1}">
+            <div class="card" data-toggle="modal" data-target="#wellnessModal">
+                <img src="${entry.image}" class="card-img-top" alt="${entry.title}">
+                <div class="card-body">
+                    <h5 class="card-title">${entry.title}</h5>
+                    <p class="card-text">${entry.text}</p>
+                </div>
+            </div>
+        </div>
+    `;
+    wellnessCarousel.innerHTML += entryHTML;
+});
+
+// shows entries
+$('#wellness-carousel').on('click', '.card', function () {
+    const title = $(this).find('.card-title').text();
+    const imageSrc = $(this).find('.card-img-top').attr('src');
+    const text = $(this).find('.card-text').text();
+
+    $('#wellnessModalLabel').text(title);
+    $('#wellnessModal .modal-body img').attr('src', imageSrc);
+    $('#wellnessModal .modal-body h5').text(title);
+    $('#wellnessModal .modal-body p').text(text);
+
+    $('#wellnessModal').modal('show');
+});
