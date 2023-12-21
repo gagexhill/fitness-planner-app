@@ -11,7 +11,6 @@
 - **License**
 - **Contact**
 - **FAQs and Common Questions**
-- **ChangeLog**
 
 ## Introduction
 The Fitness Planner App is a comprehensive web application designed to help users track and plan their workouts, diet, and wellness journey. It features an intuitive interface, detailed sections for various fitness and nutrition needs, easy navigation, and interactive elements for a dynamic user experience.
