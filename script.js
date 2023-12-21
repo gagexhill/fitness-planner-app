@@ -104,3 +104,7 @@ function populateModal(recipe) {
         <p>${recipe.instructions ? recipe.instructions : 'No instructions provided.'}</p>
     `;
 }
+
+function openPostWorkoutModal() {
+    $('#postWorkoutModal').modal('show');
+}
