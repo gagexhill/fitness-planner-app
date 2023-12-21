@@ -3,22 +3,24 @@ html, body {
     height: 100%;
     margin: 0;
     overflow-x: hidden;
-  }
+}
   
-  #particle-canvas {
+#particle-canvas {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(to bottom, rgb(10, 10, 50) 0%,rgb(60, 10, 60) 100%);
+    background: linear-gradient(to bottom, rgb(10, 10, 50) 0%, rgb(60, 10, 60) 100%);
     z-index: -1;
-  }
+}
 
 /* Navbar */
 .navbar {
     background-color: #f8f9fa;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 1030;
+    padding: 15px 0;
 }
 
 .navbar-brand {
@@ -41,11 +43,16 @@ html, body {
 
 /* Section */
 section {
-    padding: 40px 0;
-    background-color: rgb(237, 237, 240);
+    padding: 60px 0;
+    background-color: rgba(237, 237, 240, 0.9);
     border-radius: 5px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    margin: 20px 0;
+    margin: 40px 0;
+}
+
+#home, #wellness-journal, #nutrition-deit, #workout-recommendations, #calculator, #links {
+    margin-top: 40px;
+    margin-bottom: 40px;
 }
 
 h1, h2, h3, h4, h5 {
@@ -142,7 +149,7 @@ footer {
     display: flex;
     justify-content: center;
     gap: 20px;
-    margin-top: 15px;
+    margin-top: 20px;
 }
 
 .github-link {
