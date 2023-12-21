@@ -39,12 +39,6 @@ html, body {
     margin-right: 5px;
 }
 
-img[alt="Keto Diet Icon"], [alt="Vegan Diet Icon"], [alt="Primal Diet Icon"] {
-    width: 1em;
-    height: 1em;
-    vertical-align: -0.125em;
-}
-
 /* Section */
 section {
     padding: 40px 0;
