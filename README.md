@@ -49,7 +49,6 @@ Contributions to the Fitness Planner App are welcome. Please read the contributi
 - Gage - [GitHub](https://github.com/gagexhill)
 - Sam - [GitHub](https://github.com/samulaplus)
 - Udyr - [GitHub](https://github.com/udyrtsaige)
-- Vitalii - [GitHub](https://github.com/vitalii-chibizov)
 
 ## License
 This project is licensed under the MIT License - see the LICENSE.md file for details.
