@@ -637,7 +637,75 @@
         <!-- Calculator Section -->
         <section id="calculator" class="container">
             <h2><strong>Calculators</strong></h2>
-            <!-- Additional content goes here -->
+            <!-- BMI Calculator -->
+    <section id="bmi-calculator" class="container">
+        <h2>BMI Calculator</h2>
+        <form id="bmiForm">
+          Height:
+          <input type="number" id="heightFeet" placeholder="Feet" /> feet
+          <input type="number" id="heightInches" placeholder="Inches" /> inches
+          Weight:
+          <input type="number" id="weightPounds" placeholder="Pounds" /> pounds
+          <button type="button" class="btn" onclick="calculateBMI()">
+            Calculate BMI
+          </button>
+          <button type="button" class="btn" onclick="resetCalculators()">
+            Reset
+          </button>
+        </form>
+        <p>Your BMI is: <span id="bmiResult"></span></p>
+        <div class="result-section">
+          <div>Underweight<br /><span>less than 18.5</span></div>
+          <div class="active">Normal<br /><span>18.5 to 24.9</span></div>
+          <div>Pre-Obesity<br /><span>25 to 29.9</span></div>
+          <div>Obesity<br /><span>30 or greater</span></div>
+        </div>
+      </section>
+  
+      <!-- BMR Calculator Section -->
+      <section id="bmr-calculator" class="container">
+        <h2>BMR Calculator</h2>
+        <input type="number" id="bmr-age" placeholder="Age in years" />
+        <input type="number" id="bmr-height-feet" placeholder="Height in feet" />
+        <input
+          type="number"
+          id="bmr-height-inches"
+          placeholder="Height in inches"
+        />
+        <input type="number" id="bmr-weight" placeholder="Weight in pounds" />
+        <select id="bmr-gender">
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+        </select>
+        <button onclick="calculateBMR()">Calculate BMR</button>
+        <div id="bmr-result"></div>
+        <button type="button" class="btn" onclick="resetCalculators()">
+          Reset
+        </button>
+      </section>
+  
+      <!-- Calories Burnt Calculator -->
+      <section id="calorie-counter" class="container">
+        <h2>Calorie Counter</h2>
+        <input type="number" id="calories-age" placeholder="Age in years" />
+        <input
+          type="number"
+          id="calories-weight"
+          placeholder="Weight in pounds"
+        />
+        <select id="calories-activity-level">
+          <option value="sedentary">Sedentary</option>
+          <option value="light">Light Activity</option>
+          <option value="moderate">Moderate Activity</option>
+          <option value="active">Active</option>
+          <option value="veryActive">Very Active</option>
+        </select>
+        <button onclick="calculateCalories()">Calculate Daily Calories</button>
+        <div id="calories-result"></div>
+        <button type="button" class="btn" onclick="resetCalculators()">
+          Reset
+        </button>
+      </section>
         </section>
     </main>
 
@@ -673,5 +741,6 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="script.js"></script>
     <script src="animation-script.js"></script>
+    <script src="cal.js"></script>
 </body>
 </html>
