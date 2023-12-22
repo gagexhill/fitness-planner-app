@@ -13,7 +13,7 @@
     <!-- Animated Background -->
     <canvas id="particle-canvas"></canvas>
 
-    <!-- Sticky Navbar -->
+    <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
         <a class="navbar-brand" href="#"><i class="fas fa-medal"></i> Fitness Planner</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -29,14 +29,12 @@
                     <i class="fas fa-utensils"></i> Nutrition & Diet</a></li>
                 <!-- Workout Recommendations Dropdown -->
                 <li class="nav-item dropdown active">
-                    <a class="nav-link dropdown-toggle" href="#" id="workoutDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle" href="#workout-recommendations" id="workoutDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <i class="fas fa-heart"></i> Workout Recommendations
                     </a>
                     <div class="dropdown-menu" aria-labelledby="workoutDropdown">
-                        <a class="dropdown-item" href="#">
-                            <i class="fas fa-dumbbell"></i> Exercise Types</a>
-                        <a class="dropdown-item" href="#">
-                            <i class="fas fa-couch"></i> Post-Workouts (Recovery)</a>
+                        <a class="dropdown-item" href="#pre-workout-section"><i class="fas fa-dumbbell"></i> Pre-Workout (Warmup)</a>
+                        <a class="dropdown-item" href="#post-workout-section"><i class="fas fa-couch"></i> Post-Workout (Recovery)</a>
                     </div>
                 </li>
                 <!-- Calculators Dropdown -->
@@ -60,6 +58,7 @@
     </nav>
 
     <main>
+        <!-- Home Section -->
         <section id="home" class="container">
             <header>
                 <h1><strong>Welcome to Fitness Planner</strong></h1>
@@ -78,33 +77,37 @@
                     <p><b>Log your wellness journey entries here.</b></p>
                 </header>
 
-       <!-- Wellness Journal Carousel -->
-       <div id="wellness-carousel" class="carousel slide" data-ride="carousel">
-           <div class="carousel-inner" id="wellness-entries">
-               <div class="carousel-item active">
-                   <div class="card">
-                       <img src="path/to/wellness_entry_image.jpg" class="card-img-top" alt="Wellness Journal Image">
-                       <div class="card-body">
-                           <h5 class="card-title">Wellness Entry Title</h5>
-                           <p class="card-text">Log your progress here!</p>
-                       </div>
-                   </div>
-               </div>
-           </div>
-           <a class="carousel-control-prev" href="#wellness-carousel" role="button" data-slide="prev">
-               <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-               <span class="sr-only">Previous</span>
-           </a>
-           <a class="carousel-control-next" href="#wellness-carousel" role="button" data-slide="next">
-               <span class="carousel-control-next-icon" aria-hidden="true"></span>
-               <span class="sr-only">Next</span>
-           </a>
-       </div>
-   </article>    
-</section>
-
-        <!-- Wellness Journal Modal -->
-            <div class="modal fade" id="wellnessModal" tabindex="-1" aria-labelledby="wellnessModalLabel" aria-hidden="true">
+                <!-- Wellness Journal Carousel -->
+                <div id="wellness-carousel" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner" id="wellness-entries">
+                        <div class="carousel-item active">
+                            <div class="card">
+                                <img src="./images/Belikemike.jpg" class="card-img-top" alt="Wellness Journal Image">
+                                <div class="card-body">
+                                    <h5 class="card-title">Wellness Entry Title</h5>
+                                    <p class="card-text">Log your progress here!</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <a class="carousel-control-prev" href="#wellness-carousel" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon"    aria-hidden="true">
+                            <i class="fas fa-chevron-left"></i>
+                        </span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#wellness-carousel" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon"    aria-hidden="true">
+                            <i class="fas fa-chevron-right"></i>
+                        </span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+            </article>    
+        </section>
+        
+        <!-- Wellness Detail Modal -->
+        <div class="modal fade" id="wellnessModal" tabindex="-1" aria-labelledby="wellnessModalLabel"aria-hidden="true">
             <div class="modal-dialog modal-lg">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -116,7 +119,7 @@
                     <div class="modal-body">
                         <div class="row">
                             <div class="col-md-6">
-                                <img src="./images/fitness_log.jpg" class="img-fluid" alt="Wellness Journal Image">
+                                <img src="./images/fitness_log.jpg" class="img-fluid" alt="WellnessJournal Image">
                             </div>
                             <div class="col-md-6">
                                 <h5>Wellness Journal</h5>
@@ -133,6 +136,7 @@
             <article>
                 <header>
                     <h2><strong>Nutrition & Diet</strong></h2>
+                    <p><b>Search for you favorite recipe.</b></p>
                 </header>
 
                 <!-- Search Input for Recipes -->
@@ -157,6 +161,8 @@
                             </div>
                         </div>
                     </div>
+
+                    <!-- Recipe Carousel Controls (Prev/Next) -->
                     <a class="carousel-control-prev" href="#recipe-carousel" role="button" data-slide="prev">
                         <span class="carousel-control-prev-icon" aria-hidden="true">
                             <i class="fas fa-chevron-left"></i>
@@ -196,415 +202,437 @@
             </div>
         </div>
 
-        <!-- Workout (Pre-Post Recovery) Section -->
-        <section id="workout-recommendations" class="container">
-            <h2><strong>Workout Recommendations</strong></h2>
+        <!-- Workout Recommendations -->
+        <!-- 'Pre-Workout' -->
+        <section id="pre-workout-section" class="container">
+            <header>
+                <h2><strong>Warm-Up Recommendations</strong></h2>
+                <p><b>Get ready.</b></p>
+            </header>
 
-            <br>
+            <!-- Pre-Workout Carousel -->
+            <div id="pre-workout-carousel" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner" id="pre-workout-cards">
 
-<!-- Pre-Workout Carousel -->
-<div id="pre-workout-carousel" class="carousel slide" data-ride="carousel">
-    <div class="carousel-inner" id="pre-workout-cards">
-<!-- Pre-Workout Carousel Item 1 -->
-<div class="carousel-item active">
-    <div class="card">
-        <img src="images/warmup1.jpg" class="card-img-top" alt="Pre-Workout Image 1">
-        <div class="card-body">
-            <h5 class="card-title">Dynamic Warmups</h5>
-            <p class="card-text">Dynamic Warmups to prevent injury.</p>
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#preWorkoutModal">
-                View Details
-            </button>
-        </div>
-    </div>
-</div>
-
-<!-- Pre-Workout Carousel Item 2 -->
-<div class="carousel-item">
-    <div class="card">
-        <img src="images/stretch2.webp" class="card-img-top" alt="Pre-Workout Image 2" data-toggle="modal" data-target="#preWorkoutModal2">
-        <div class="card-body">
-            <h5 class="card-title">Warmup stretches</h5>
-            <p class="card-text">Warm-up stretches to prepare your body</p>
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#preWorkoutModal2">
-                Show Details
-            </button>
-        </div>
-    </div>
-</div>
-
-    <!-- Carousel Controls (Prev/Next) -->
-    <a class="carousel-control-prev" href="#pre-workout-carousel" role="button" data-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
-    </a>
-    <a class="carousel-control-next" href="#pre-workout-carousel" role="button" data-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
-    </a>
-</div>
-
-<!-- Pre-Workout Modal -->
-<div class="modal fade" id="preWorkoutModal" tabindex="-1" aria-labelledby="preWorkoutModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="preWorkoutModalLabel">Pre-Workout Entry</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <div class="row">
-                    <div class="col-md-6">
-                        <img src="images/warmup1.jpg" class="img-fluid" alt="Pre-Workout Image 1">
+                    <!-- Pre-Workout Carousel Item 1 -->
+                    <div class="carousel-item active">
+                        <div class="card">
+                            <img src="images/warmup1.jpg" class="card-img-top" alt="Pre-Workout Image 1">
+                            <div class="card-body">
+                                <h5 class="card-title">Dynamic Warm-Ups</h5>
+                                <p class="card-text">Dynamic warm-ups to prevent injury.</p>
+                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#preWorkoutModal">
+                                    View Details
+                                </button>
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-md-6">
-                        <p>        <strong>Pre-Workout Routine 1:</strong><br>
-                            Jump Rope: 5 minutes<br>
-                            Dynamic Stretching:<br>
-                            Arm Circles: 2 sets of 15 seconds<br>
-                            Leg Swings: 2 sets of 15 seconds per leg<br>
-                    
-                            <strong>Pre-Workout Routine 2:</strong><br>
-                            Light Jog: 10 minutes<br>
-                            Joint Mobilization:<br>
-                            Neck Rolls: 1 set of 10 reps in each direction<br>
-                            Shoulder Rolls: 2 sets of 15 seconds<br>
-                    
-                            <strong>Pre-Workout Routine 3:</strong><br>
-                            High Knees: 3 sets of 30 seconds<br>
-                            Yoga Flow:<br>
-                            Sun Salutations: 2 sets of 5 reps<br>
-                    
-                            <strong>Pre-Workout Routine 4:</strong><br>
-                            Cycling: 15 minutes<br>
-                            Core Activation:<br>
-                            Plank: 2 sets of 30 seconds<br>
-                            Bird-Dog: 2 sets of 10 reps per side<br>
-                    
-                            <strong>Pre-Workout Routine 5:</strong><br>
-                            Rowing: 10 minutes<br>
-                            Resistance Band Exercises:<br>
-                            Lateral Band Walks: 2 sets of 15 steps in each direction<br>
-                            Band Pull-Aparts: 2 sets of 15 reps<br>
-                    
-                            <strong>Pre-Workout Routine 6:</strong><br>
-                            Stair Climbing: 5 minutes<br>
-                            Pilates Warm-Up:<br>
-                            Hundred Exercise: 2 sets of 30 seconds<br>
-                    
-                            <strong>Pre-Workout Routine 7:</strong><br>
-                            Elliptical Machine: 10 minutes<br>
-                            Dynamic Lunges:<br>
-                            Forward Lunges: 2 sets of 10 reps per leg<br>
-                            Side Lunges: 2 sets of 10 reps per leg<br>
-                    
-                            <strong>Pre-Workout Routine 8:</strong><br>
-                            Box Jumps: 3 sets of 10 reps<br>
-                            Agility Drills:<br>
-                            Cone Drill: 2 sets of 5 rounds<br>
-                    
-                            <strong>Pre-Workout Routine 9:</strong><br>
-                            Battle Ropes: 5 minutes<br>
-                            Medicine Ball Exercises:<br>
-                            Medicine Ball Slams: 3 sets of 10 reps<br>
-                    
-                            <strong>Pre-Workout Routine 10:</strong><br>
-                            Sprints: 5 sets of 30 seconds<br>
-                            Calisthenics:<br>
-                            Bodyweight Squats: 2 sets of 15 reps<br>
-                            Push-Ups: 2 sets of 10 reps<br>
-                    
-                            Remember to tailor these routines to your fitness level and gradually increase intensity.
-                            Consult with a fitness professional or healthcare provider before starting a new exercise program,
-                            especially if you have any existing health concerns.</p>
+
+                    <!-- Pre-Workout Carousel Item 2 -->
+                    <div class="carousel-item">
+                        <div class="card">
+                            <img src="images/stretch2.webp" class="card-img-top" alt="Pre-Workout Image 2" data-toggle="modal"  data-target="#preWorkoutModal2">
+                            <div class="card-body">
+                                <h5 class="card-title">Warm-up Stretches</h5>
+                                <p class="card-text">Warm-up stretches to prepare your body</p>
+                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#preWorkoutModal2">
+                                    Show Details
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Pre-Workout Carousel Controls (Prev/Next) -->
+                    <a class="carousel-control-prev" href="#pre-workout-carousel" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true">
+                            <i class="fas fa-chevron-left"></i>
+                        </span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#pre-workout-carousel" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true">
+                            <i class="fas fa-chevron-right"></i>
+                        </span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Pre-Workout Detail Modal 1 -->
+            <div class="modal fade" id="preWorkoutModal" tabindex="-1" aria-labelledby="preWorkoutModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="preWorkoutModalLabel">Warm-up Recommendations</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <img src="images/warmup1.jpg" class="img-fluid" alt="Pre-Workout Image 1">
+                                </div>
+                                <div class="col-md-6">
+                                    <p><strong><u>Pre-Workout Routine 1:</u></strong><br>
+                                        <b>Jump Rope:</b> 5 minutes<br>
+                                        <b>Dynamic Stretching:</b><br>
+                                        <b>Arm Circles:</b> 2 sets of 15 seconds<br>
+                                        <b>Leg Swings:</b> 2 sets of 15 seconds per leg<br><br>
+                                        
+                                        <strong><u>Pre-Workout Routine 2:</u></strong><br>
+                                        <b>Light Jog:</b> 10 minutes<br>
+                                        <b>Joint Mobilization:</b><br>
+                                        <b>Neck Rolls:</b> 1 set of 10 reps in each direction<br>
+                                        <b>Shoulder Rolls:</b> 2 sets of 15 seconds<br><br>
+                                    
+                                        <strong><u>Pre-Workout Routine 3:</u></strong><br>
+                                        <b>High Knees:</b> 3 sets of 30 seconds<br>
+                                        <b>Yoga Flow:</b><br>
+                                        <b>Sun Salutations:</b> 2 sets of 5 reps<br><br>
+                                    
+                                        <strong><u>Pre-Workout Routine 4:</u></strong><br>
+                                        <b>Cycling:</b> 15 minutes<br>
+                                        <b>Core Activation:</b><br>
+                                        <b>Plank:</b> 2 sets of 30 seconds<br>
+                                        <b>Bird-Dog:</b> 2 sets of 10 reps per side<br><br>
+                                    
+                                        <strong><u>Pre-Workout Routine 5:</u></strong><br>
+                                        <b>Rowing:</b> 10 minutes<br>
+                                        <b>Resistance Band Exercises:</b><br>
+                                        <b>Lateral Band Walks:</b> 2 sets of 15 steps in each direction<br>
+                                        <b>Band Pull-Aparts:</b> 2 sets of 15 reps<br><br>
+                                    
+                                        <strong><u>Pre-Workout Routine 6:</u></strong><br>
+                                        <b>Stair Climbing:</b> 5 minutes<br>
+                                        <b>Pilates Warm-Up:</b><br>
+                                        <b>Hundred Exercise:</b> 2 sets of 30 seconds<br><br>
+                                    
+                                        <strong><u>Pre-Workout Routine 7:</u></strong><br>
+                                        <b>Elliptical Machine:</b> 10 minutes<br>
+                                        <b>Dynamic Lunges:</b><br>
+                                        <b>Forward Lunges:</b> 2 sets of 10 reps per leg<br>
+                                        <b>Side Lunges:</b> 2 sets of 10 reps per leg<br><br>
+                                    
+                                        <strong><u>Pre-Workout Routine 8:</u></strong><br>
+                                        <b>Box Jumps:</b> 3 sets of 10 reps<br>
+                                        <b>Agility Drills:</b><br>
+                                        <b>Cone Drill:</b> 2 sets of 5 rounds<br><br>
+                                    
+                                        <strong><u>Pre-Workout Routine 9:</u></strong><br>
+                                        <b>Battle Ropes:</b> 5 minutes<br>
+                                        <b>Medicine Ball Exercises:</b><br>
+                                        <b>Medicine Ball Slams:</b> 3 sets of 10 reps<br><br>
+                                    
+                                        <strong><u>Pre-Workout Routine 10:</u></strong><br>
+                                        <b>Sprints:</b> 5 sets of 30 seconds<br>
+                                        <b>Calisthenics:</b><br>
+                                        <b>Bodyweight Squats:</b> 2 sets of 15 reps<br>
+                                        <b>Push-Ups:</b> 2 sets of 10 reps<br><br>
+                                    
+                                        <p><b>A Quick Note:</b> Tailor these routines to your fitness level and gradually increase intensity.
+                                        Consult with a fitness professional or healthcare provider before starting a new exercise program,
+                                        especially if you have any existing health concerns.</p>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-</div>
 
-<!-- Pre-Workout Modal 2 -->
-<div class="modal fade" id="preWorkoutModal2" tabindex="-1" aria-labelledby="preWorkoutModalLabel2" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="preWorkoutModalLabel2">Pre-Workout Entry 2</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <div class="row">
-                    <div class="col-md-6">
-                        <img src="images/stretch2.webp" class="img-fluid" alt="Pre-Workout Image 2">
-                    </div>
-                    <div class="col-md-6">
-                        <p>Pre-Workout Routine 1:<br>
-                            Jump Rope: 5 minutes<br>
-                            Dynamic Stretching:<br>
-                            Arm Circles: 2 sets of 15 seconds<br>
-                            Leg Swings: 2 sets of 15 seconds per leg<br>
-                    
-                            Pre-Workout Routine 2:<br>
-                            Light Jog: 10 minutes<br>
-                            Joint Mobilization:<br>
-                            Neck Rolls: 1 set of 10 reps in each direction<br>
-                            Shoulder Rolls: 2 sets of 15 seconds<br>
-                    
-                            Pre-Workout Routine 3:<br>
-                            High Knees: 3 sets of 30 seconds<br>
-                            Yoga Flow:<br>
-                            Sun Salutations: 2 sets of 5 reps<br>
-                    
-                            Pre-Workout Routine 4:<br>
-                            Cycling: 15 minutes<br>
-                            Core Activation:<br>
-                            Plank: 2 sets of 30 seconds<br>
-                            Bird-Dog: 2 sets of 10 reps per side<br>
-                    
-                            Pre-Workout Routine 5:<br>
-                            Rowing: 10 minutes<br>
-                            Resistance Band Exercises:<br>
-                            Lateral Band Walks: 2 sets of 15 steps in each direction<br>
-                            Band Pull-Aparts: 2 sets of 15 reps<br>
-                    
-                            Pre-Workout Routine 6:<br>
-                            Stair Climbing: 5 minutes<br>
-                            Pilates Warm-Up:<br>
-                            Hundred Exercise: 2 sets of 30 seconds<br>
-                    
-                            Pre-Workout Routine 7:<br>
-                            Elliptical Machine: 10 minutes<br>
-                            Dynamic Lunges:<br>
-                            Forward Lunges: 2 sets of 10 reps per leg<br>
-                            Side Lunges: 2 sets of 10 reps per leg<br>
-                    
-                            Pre-Workout Routine 8:<br>
-                            Box Jumps: 3 sets of 10 reps<br>
-                            Agility Drills:<br>
-                            Cone Drill: 2 sets of 5 rounds<br>
-                    
-                            Pre-Workout Routine 9:<br>
-                            Battle Ropes: 5 minutes<br>
-                            Medicine Ball Exercises:<br>
-                            Medicine Ball Slams: 3 sets of 10 reps<br>
-                    
-                            Pre-Workout Routine 10:<br>
-                            Sprints: 5 sets of 30 seconds<br>
-                            Calisthenics:<br>
-                            Bodyweight Squats: 2 sets of 15 reps<br>
-                            Push-Ups: 2 sets of 10 reps<br>
-                    
-                            Remember to tailor these routines to your fitness level and gradually increase intensity.
-                            Consult with a fitness professional or healthcare provider before starting a new exercise program,
-                            especially if you have any existing health concerns.
-                    </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-<br>
-
-<!-- Post-Workout Carousel -->
-<div id="post-workout-carousel" class="carousel slide" data-ride="carousel">
-    <div class="carousel-inner" id="post-workout-cards">
-<!-- Post-Workout Carousel Item 1 -->
-<div class="carousel-item active">
-    <div class="card">
-        <img src="images/Stretch1.jpg" class="card-img-top" alt="Post-Workout Image 1" data-toggle="modal" data-target="#postWorkoutModal">
-        <div class="card-body">
-            <h5 class="card-title">Post Workout stretch routines</h5>
-            <p class="card-text">These stretches can help your body recover post workout.</p>
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#postWorkoutModal">
-                Show Details
-            </button>
-        </div>
-    </div>
-</div>
-
-<!-- Post-Workout Carousel Item 2 -->
-<div class="carousel-item">
-    <div class="card">
-        <img src="images/reco1.jpg" class="card-img-top" alt="Post-Workout Image 2" data-toggle="modal" data-target="#postWorkoutModal2">
-        <div class="card-body">
-            <h5 class="card-title">Additional holistic recovery methods</h5>
-            <p class="card-text">These are additional steps you can take to help your body recover post-workout</p>
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#postWorkoutModal2">
-                Show Details
-            </button>
-        </div>
-    </div>
-</div>
-
-    <!-- Carousel Controls (Prev/Next) -->
-    <a class="carousel-control-prev" href="#post-workout-carousel" role="button" data-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
-    </a>
-    <a class="carousel-control-next" href="#post-workout-carousel" role="button" data-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
-    </a>
-</div>
-
-<!-- Post-Workout Modal -->
-<div class="modal fade" id="postWorkoutModal" tabindex="-1" aria-labelledby="postWorkoutModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="postWorkoutModalLabel">Post workout active recovery</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <div class="row">
-                    <div class="col-md-6">
-                        <img src="images/Stretch1.jpg" class="img-fluid" alt="Post-Workout Image 1">
-                    </div>
-                    <div class="col-md-6">
-                        <p>        <strong>Post-Workout Stretch Routine 1:</strong><br>
-                            Standing Forward Bend: 2 sets of 30 seconds<br>
-                            Seated Forward Fold: 2 sets of 30 seconds<br>
-                            Triceps Stretch: 2 sets of 15 seconds per arm<br>
-                    
-                            <strong>Post-Workout Stretch Routine 2:</strong><br>
-                            Chest Opener Stretch: 2 sets of 15 seconds<br>
-                            Butterfly Stretch: 2 sets of 30 seconds<br>
-                            Child's Pose: 2 sets of 30 seconds<br>
-                    
-                            <strong>Post-Workout Stretch Routine 3:</strong><br>
-                            Quadriceps Stretch: 2 sets of 15 seconds per leg<br>
-                            Hamstring Stretch: 2 sets of 30 seconds per leg<br>
-                            Calf Stretch: 2 sets of 15 seconds per leg<br>
-                    
-                            <strong>Post-Workout Stretch Routine 4:</strong><br>
-                            Cat-Cow Stretch: 2 sets of 15 reps<br>
-                            Thread the Needle Stretch: 2 sets of 15 seconds per side<br>
-                            Wrist Flexor Stretch: 2 sets of 15 seconds per arm<br>
-                    
-                            <strong>Post-Workout Stretch Routine 5:</strong><br>
-                            Hip Flexor Stretch: 2 sets of 30 seconds per leg<br>
-                            Pec Stretch: 2 sets of 15 seconds per side<br>
-                            Side Lying Quad Stretch: 2 sets of 15 seconds per leg<br>
-                    
-                            <strong>Post-Workout Stretch Routine 6:</strong><br>
-                            Shoulder Stretch: 2 sets of 15 seconds per arm<br>
-                            Spinal Twist Stretch: 2 sets of 30 seconds per side<br>
-                            Ankle Circles: 2 sets of 15 seconds per ankle<br>
-                    
-                            <strong>Post-Workout Stretch Routine 7:</strong><br>
-                            Glute Stretch: 2 sets of 30 seconds per leg<br>
-                            Neck Stretch: 2 sets of 15 seconds per side<br>
-                            Seated Side Stretch: 2 sets of 30 seconds per side<br>
-                    
-                            <strong>Post-Workout Stretch Routine 8:</strong><br>
-                            IT Band Stretch: 2 sets of 15 seconds per leg<br>
-                            Standing Quad Stretch: 2 sets of 15 seconds per leg<br>
-                            Seated Twist Stretch: 2 sets of 30 seconds per side<br>
-                    
-                            <strong>Post-Workout Stretch Routine 9:</strong><br>
-                            Full Body Stretch: 2 sets of 30 seconds<br>
-                            Wrist Extensor Stretch: 2 sets of 15 seconds per arm<br>
-                            Standing Side Stretch: 2 sets of 30 seconds per side<br>
-                    
-                            <strong>Post-Workout Stretch Routine 10:</strong><br>
-                            Lizard Stretch: 2 sets of 30 seconds per leg<br>
-                            Wall Chest Stretch: 2 sets of 15 seconds<br>
-                            Seated Wide-Legged Forward Bend: 2 sets of 30 seconds<br>
-                    
-                            Remember to hold each stretch comfortably and breathe deeply.
-                            These stretches can help improve flexibility and reduce muscle soreness after your workout.</p>
+            <!-- Pre-Workout Detail Modal 2 -->
+            <div class="modal fade" id="preWorkoutModal2" tabindex="-1" aria-labelledby="preWorkoutModalLabel2" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="preWorkoutModalLabel2">More Warm-up Recommendations</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <img src="images/stretch2.webp" class="img-fluid" alt="Pre-Workout Image 2">
+                                </div>
+                                <div class="col-md-6">
+                                    <p>
+                                        <b>Pre-Workout Routine 1:</b><br>
+                                        <b>Jump Rope:</b> 5 minutes<br>
+                                        <b>Dynamic Stretching:</b><br>
+                                        <b>Arm Circles:</b> 2 sets of 15 seconds<br>
+                                        <b>Leg Swings:</b> 2 sets of 15 seconds per leg<br><br>
+                                    
+                                        <b>Pre-Workout Routine 2:</b><br>
+                                        <b>Light Jog:</b> 10 minutes<br>
+                                        <b>Joint Mobilization:</b><br>
+                                        <b>Neck Rolls:</b> 1 set of 10 reps in each direction<br>
+                                        <b>Shoulder Rolls:</b> 2 sets of 15 seconds<br><br>
+                                    
+                                        <b>Pre-Workout Routine 3:</b><br>
+                                        <b>High Knees:</b> 3 sets of 30 seconds<br>
+                                        <b>Yoga Flow:</b><br>
+                                        <b>Sun Salutations:</b> 2 sets of 5 reps<br><br>
+                                    
+                                        <b>Pre-Workout Routine 4:</b><br>
+                                        <b>Cycling:</b> 15 minutes<br>
+                                        <b>Core Activation:</b><br>
+                                        <b>Plank:</b> 2 sets of 30 seconds<br>
+                                        <b>Bird-Dog:</b> 2 sets of 10 reps per side<br><br>
+                                    
+                                        <b>Pre-Workout Routine 5:</b><br>
+                                        <b>Rowing:</b> 10 minutes<br>
+                                        <b>Resistance Band Exercises:</b><br>
+                                        <b>Lateral Band Walks:</b> 2 sets of 15 steps in each direction<br>
+                                        <b>Band Pull-Aparts:</b> 2 sets of 15 reps<br><br>
+                                    
+                                        <b>Pre-Workout Routine 6:</b><br>
+                                        <b>Stair Climbing:</b> 5 minutes<br>
+                                        <b>Pilates Warm-Up:</b><br>
+                                        <b>Hundred Exercise:</b> 2 sets of 30 seconds<br><br>
+                                    
+                                        <b>Pre-Workout Routine 7:</b><br>
+                                        <b>Elliptical Machine:</b> 10 minutes<br>
+                                        <b>Dynamic Lunges:</b><br>
+                                        <b>Forward Lunges:</b> 2 sets of 10 reps per leg<br>
+                                        <b>Side Lunges:</b> 2 sets of 10 reps per leg<br><br>
+                                    
+                                        <b>Pre-Workout Routine 8:</b><br>
+                                        <b>Box Jumps:</b> 3 sets of 10 reps<br>
+                                        <b>Agility Drills:</b><br>
+                                        <b>Cone Drill:</b> 2 sets of 5 rounds<br><br>
+                                    
+                                        <b>Pre-Workout Routine 9:</b><br>
+                                        <b>Battle Ropes:</b> 5 minutes<br>
+                                        <b>Medicine Ball Exercises:</b><br>
+                                        <b>Medicine Ball Slams:</b> 3 sets of 10 reps<br><br>
+                                    
+                                        <b>Pre-Workout Routine 10:</b><br>
+                                        <b>Sprints:</b> 5 sets of 30 seconds<br>
+                                        <b>Calisthenics:</b><br>
+                                        <b>Bodyweight Squats:</b> 2 sets of 15 reps<br>
+                                        <b>Push-Ups:</b> 2 sets of 10 reps<br><br>
+                                    
+                                        <p><b>A Quick Note:</b><br>
+                                            Tailor these routines to your fitness level and gradually increase intensity. 
+                                            Consult with a fitness professional or healthcare provider before starting a new exercise program,
+                                            especially if you have any existing health concerns.
+                                        </p>
+                                    </p>                                    
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-</div>
+        </section>    
+        
+        <!-- 'Post-Workout' -->
+        <section id="post-workout-section" class="container">
+            <header>
+                <h2><strong>Post-Exercise Recommendations</strong></h2>
+                <p><b>Cool-down.</b></p>
+            </header>
 
-<!-- Post-Workout Modal 2 -->
-<div class="modal fade" id="postWorkoutModal2" tabindex="-1" aria-labelledby="postWorkoutModalLabel2" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="postWorkoutModalLabel2">Post-Workout Recovery</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <div class="row">
-                    <div class="col-md-6">
-                        <img src="images/reco1.jpg" class="img-fluid" alt="Post-Workout Image 2">
+            <!-- Post-Workout Carousel -->   
+            <div id="post-workout-carousel" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner" id="post-workout-cards">
+
+                <!-- Post-Workout Carousel Item 1 -->
+                <div class="carousel-item active">
+                    <div class="card">
+                        <img src="images/Stretch1.jpg" class="card-img-top" alt="Post-Workout Image 1" data-toggle="modal"  data-target="#postWorkoutModal">
+                        <div class="card-body">
+                            <h5 class="card-title">Post-Exercise Stretch Routines</h5>
+                            <p class="card-text">These stretches can help your body recover post-workout.</p>
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#postWorkoutModal">
+                                Show Details
+                            </button>
+                        </div>
                     </div>
-                    <div class="col-md-6">
-                        <p>        <strong>Holistic Recovery Routine 1:</strong><br>
-                            Deep Breathing Exercise: 5 minutes<br>
-                            Meditation: 10 minutes<br>
-                            Foam Rolling: 5 minutes<br>
-                    
-                            <strong>Holistic Recovery Routine 2:</strong><br>
-                            Ice Bath: 10 minutes<br>
-                            Contrast Shower: 5 minutes (alternating between hot and cold water)<br>
-                            Mindful Walking: 15 minutes<br>
-                    
-                            <strong>Holistic Recovery Routine 3:</strong><br>
-                            Sauna Session: 15 minutes<br>
-                            Light Stretching: 10 minutes<br>
-                            Herbal Tea or Hydration: 8 ounces<br>
-                    
-                            <strong>Holistic Recovery Routine 4:</strong><br>
-                            Mindful Breathing Exercises: 10 minutes<br>
-                            Aromatherapy: 5 minutes (using calming essential oils)<br>
-                            Yin Yoga: 15 minutes<br>
-                    
-                            <strong>Holistic Recovery Routine 5:</strong><br>
-                            Ice Massage (using an ice cup): 5 minutes<br>
-                            Meditation or Guided Imagery: 10 minutes<br>
-                            Progressive Muscle Relaxation: 5 minutes<br>
-                    
-                            <strong>Holistic Recovery Routine 6:</strong><br>
-                            Sauna Session: 20 minutes<br>
-                            Reiki or Self-Healing Touch: 15 minutes<br>
-                            Hydration with Electrolytes: 8 ounces<br>
-                    
-                            <strong>Holistic Recovery Routine 7:</strong><br>
-                            Nature Walk or Forest Bathing: 30 minutes<br>
-                            Mindful Eating: 15 minutes<br>
-                            Gentle Tai Chi or Qi Gong: 20 minutes<br>
-                    
-                            <strong>Holistic Recovery Routine 8:</strong><br>
-                            Ice Bath: 12 minutes<br>
-                            Mindful Breathing Exercises: 8 minutes<br>
-                            Progressive Relaxation: 10 minutes<br>
-                    
-                            <strong>Holistic Recovery Routine 9:</strong><br>
-                            Sauna and Cold Plunge Alternations: 20 minutes<br>
-                            Aromatherapy: 5 minutes<br>
-                            Gratitude Journaling: 10 minutes<br>
-                    
-                            <strong>Holistic Recovery Routine 10:</strong><br>
-                            Hot Stone Massage (self-massage): 15 minutes<br>
-                            Guided Visualization: 10 minutes<br>
-                            Herbal Tea or Warm Lemon Water: 8 ounces<br>
-                    
-                            Remember to listen to your body and choose routines that suit your preferences and comfort level.
-                            Holistic recovery practices can promote overall well-being and enhance your post-exercise recovery.</p>
+                </div>
+
+                <!-- Post-Workout Carousel Item 2 -->
+                <div class="carousel-item">
+                    <div class="card">
+                        <img src="images/reco1.jpg" class="card-img-top" alt="Post-Workout Image 2" data-toggle="modal" data-target="#postWorkoutModal2">
+                        <div class="card-body">
+                            <h5 class="card-title">Additional Holistic Recovery Methods</h5>
+                            <p class="card-text">Additional steps you can take to help your body recover post-workout</p>
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#postWorkoutModal2">
+                                Show Details
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Post-Workout Carousel Controls (Prev/Next) -->
+                <a class="carousel-control-prev" href="#post-workout-carousel" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true">
+                        <i class="fas fa-chevron-left"></i>
+                    </span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#post-workout-carousel" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true">
+                        <i class="fas fa-chevron-right"></i>
+                    </span>
+                    <span class="sr-only">Next</span>
+                </a>
+
+            <!-- Post-Workout Detail Modal 1 -->
+            <div class="modal fade" id="postWorkoutModal" tabindex="-1" aria-labelledby="postWorkoutModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="postWorkoutModalLabel">Post-Workout Active Recovery</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <img src="images/Stretch1.jpg" class="img-fluid" alt="Post-Workout Image 1">
+                                </div>
+                                <div class="col-md-6">
+                                    <p><strong><u>Post-Workout Stretch Routine 1:</u></strong><br>
+                                        <b>Standing Forward Bend:</b> 2 sets of 30 seconds<br>
+                                        <b>Seated Forward Fold:</b> 2 sets of 30 seconds<br>
+                                        <b>Triceps Stretch:</b> 2 sets of 15 seconds per arm<br><br>
+                                    
+                                        <strong><u>Post-Workout Stretch Routine 2:</u></strong><br>
+                                        <b>Chest Opener Stretch:</b> 2 sets of 15 seconds<br>
+                                        <b>Butterfly Stretch:</b> 2 sets of 30 seconds<br>
+                                        <b>Child's Pose:</b> 2 sets of 30 seconds<br><br>
+                                    
+                                        <strong><u>Post-Workout Stretch Routine 3:</u></strong><br>
+                                        <b>Quadriceps Stretch:</b> 2 sets of 15 seconds per leg<br>
+                                        <b>Hamstring Stretch:</b> 2 sets of 30 seconds per leg<br>
+                                        <b>Calf Stretch:</b> 2 sets of 15 seconds per leg<br><br>
+                                    
+                                        <strong><u>Post-Workout Stretch Routine 4:</u></strong><br>
+                                        <b>Cat-Cow Stretch:</b> 2 sets of 15 reps<br>
+                                        <b>Thread the Needle Stretch:</b> 2 sets of 15 seconds per side<br>
+                                        <b>Wrist Flexor Stretch:</b> 2 sets of 15 seconds per arm<br><br>
+                                    
+                                        <strong><u>Post-Workout Stretch Routine 5:</u></strong><br>
+                                        <b>Hip Flexor Stretch:</b> 2 sets of 30 seconds per leg<br>
+                                        <b>Pec Stretch:</b> 2 sets of 15 seconds per side<br>
+                                        <b>Side Lying Quad Stretch:</b> 2 sets of 15 seconds per leg<br><br>
+                                    
+                                        <strong><u>Post-Workout Stretch Routine 6:</u></strong><br>
+                                        <b>Shoulder Stretch:</b> 2 sets of 15 seconds per arm<br>
+                                        <b>Spinal Twist Stretch:</b> 2 sets of 30 seconds per side<br>
+                                        <b>Ankle Circles:</b> 2 sets of 15 seconds per ankle<br><br>
+                                    
+                                        <strong><u>Post-Workout Stretch Routine 7:</u></strong><br>
+                                        <b>Glute Stretch:</b> 2 sets of 30 seconds per leg<br>
+                                        <b>Neck Stretch:</b> 2 sets of 15 seconds per side<br>
+                                        <b>Seated Side Stretch:</b> 2 sets of 30 seconds per side<br><br>
+                                    
+                                        <strong><u>Post-Workout Stretch Routine 8:</u></strong><br>
+                                        <b>IT Band Stretch:</b> 2 sets of 15 seconds per leg<br>
+                                        <b>Standing Quad Stretch:</b> 2 sets of 15 seconds per leg<br>
+                                        <b>Seated Twist Stretch:</b> 2 sets of 30 seconds per side<br><br>
+                                    
+                                        <strong><u>Post-Workout Stretch Routine 9:</u></strong><br>
+                                        <b>Full Body Stretch:</b> 2 sets of 30 seconds<br>
+                                        <b>Wrist Extensor Stretch:</b> 2 sets of 15 seconds per arm<br>
+                                        <b>Standing Side Stretch:</b> 2 sets of 30 seconds per side<br><br>
+                                    
+                                        <strong><u>Post-Workout Stretch Routine 10:</u></strong><br>
+                                        <b>Lizard Stretch:</b> 2 sets of 30 seconds per leg<br>
+                                        <b>Wall Chest Stretch:</b> 2 sets of 15 seconds<br>
+                                        <b>Seated Wide-Legged Forward Bend:</b> 2 sets of 30 seconds<br><br>
+                                    
+                                        <p><b>A Quick Note:</b> Hold each stretch comfortably and breathe deeply.
+                                        These stretches can help improve flexibility and reduce muscle soreness after your workout.</p>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>   
+
+            <!-- Post-Workout Detail Modal 2 -->
+            <div class="modal fade" id="postWorkoutModal2" tabindex="-1" aria-labelledby="postWorkoutModalLabel2" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="postWorkoutModalLabel2">More Post-Workout Recovery</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <img src="images/reco1.jpg" class="img-fluid" alt="Post-Workout Image 2">
+                                </div>
+                                <div class="col-md-6">
+                                    <p><strong><u>Holistic Recovery Routine 1:</u></strong><br>
+                                        <b>Deep Breathing Exercise:</b> 5 minutes<br>
+                                        <b>Meditation:</b> 10 minutes<br>
+                                        <b>Foam Rolling:</b> 5 minutes<br><br>
+                                        
+                                        <strong><u>Holistic Recovery Routine 2:</u></strong><br>
+                                        <b>Ice Bath:</b> 10 minutes<br>
+                                        <b>Contrast Shower:</b> 5 minutes (alternating between hot and cold water)<br>
+                                        <b>Mindful Walking:</b> 15 minutes<br><br>
+                                        
+                                        <strong><u>Holistic Recovery Routine 3:</u></strong><br>
+                                        <b>Sauna Session:</b> 15 minutes<br>
+                                        <b>Light Stretching:</b> 10 minutes<br>
+                                        <b>Herbal Tea or Hydration:</b> 8 ounces<br><br>
+                                        
+                                        <strong><u>Holistic Recovery Routine 4:</u></strong><br>
+                                        <b>Mindful Breathing Exercises:</b> 10 minutes<br>
+                                        <b>Aromatherapy:</b> 5 minutes (using calming essential oils)<br>
+                                        <b>Yin Yoga:</b> 15 minutes<br><br>
+                                        
+                                        <strong><u>Holistic Recovery Routine 5:</u></strong><br>
+                                        <b>Ice Massage (using an ice cup):</b> 5 minutes<br>
+                                        <b>Meditation or Guided Imagery:</b> 10 minutes<br>
+                                        <b>Progressive Muscle Relaxation:</b> 5 minutes<br><br>
+                                        
+                                        <strong><u>Holistic Recovery Routine 6:</u></strong><br>
+                                        <b>Sauna Session:</b> 20 minutes<br>
+                                        <b>Reiki or Self-Healing Touch:</b> 15 minutes<br>
+                                        <b>Hydration with Electrolytes:</b> 8 ounces<br><br>
+                                        
+                                        <strong><u>Holistic Recovery Routine 7:</u></strong><br>
+                                        <b>Nature Walk or Forest Bathing:</b> 30 minutes<br>
+                                        <b>Mindful Eating:</b> 15 minutes<br>
+                                        <b>Gentle Tai Chi or Qi Gong:</b> 20 minutes<br><br>
+                                        
+                                        <strong><u>Holistic Recovery Routine 8:</u></strong><br>
+                                        <b>Ice Bath:</b> 12 minutes<br>
+                                        <b>Mindful Breathing Exercises:</b> 8 minutes<br>
+                                        <b>Progressive Relaxation:</b> 10 minutes<br><br>
+                                        
+                                        <strong><u>Holistic Recovery Routine 9:</u></strong><br>
+                                        <b>Sauna and Cold Plunge Alternations:</b> 20 minutes<br>
+                                        <b>Aromatherapy:</b> 5 minutes<br>
+                                        <b>Gratitude Journaling:</b> 10 minutes<br><br>
+                                        
+                                        <strong><u>Holistic Recovery Routine 10:</u></strong><br>
+                                        <b>Hot Stone Massage (self-massage):</b> 15 minutes<br>
+                                        <b>Guided Visualization:</b> 10 minutes<br>
+                                        <b>Herbal Tea or Warm Lemon Water:</b> 8 ounces<br><br>
+                                        
+                                        <p><b>A Quick Note:</b> Listen to your body and choose routines that suit your preferences and comfort level.
+                                        Holistic recovery practices can promote overall well-being and enhance your post-exercise recovery.</p>
+                                    </p>                                    
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-</div>
-
-<br>
+        </section>     
 
         <!-- Calculator Section -->
         <section id="calculator" class="container">
@@ -650,6 +678,7 @@
         </div>
     </footer>
 
+    <!-- Scripts -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.0/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>

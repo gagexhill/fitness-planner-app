@@ -50,7 +50,7 @@ section {
     margin: 40px 0;
 }
 
-#home, #wellness-journal, #nutrition-deit, #workout-recommendations, #calculator, #links {
+#home, #wellness-journal, #nutrition-diet, #workout-recommendations, #calculator, #links {
     margin-top: 40px;
     margin-bottom: 40px;
 }
@@ -70,7 +70,7 @@ video {
 }
 
 /* Carousel */
-#recipe-carousel {
+#wellness-carousel, #recipe-carousel, #pre-workout-carousel, #post-workout-carousel {
     background-color: #f8f9fa;
     padding: 20px;
     border-radius: 5px;
